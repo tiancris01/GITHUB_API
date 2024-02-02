@@ -22,11 +22,14 @@ class $AssetsColorsGen {
 class $AssetsEnvGen {
   const $AssetsEnvGen();
 
-  /// File path: assets/env/.env
-  String get env => 'assets/env/.env';
+  /// File path: assets/env/.env.dev
+  String get envDev => 'assets/env/.env.dev';
+
+  /// File path: assets/env/.env.prod
+  String get envProd => 'assets/env/.env.prod';
 
   /// List of all assets
-  List<String> get values => [env];
+  List<String> get values => [envDev, envProd];
 }
 
 class $AssetsIconsGen {
