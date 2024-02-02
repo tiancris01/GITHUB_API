@@ -15,13 +15,21 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$GithubRepos {}
+mixin _$GithubRepos {
+  String get repoName => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $GithubReposCopyWith<GithubRepos> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $GithubReposCopyWith<$Res> {
   factory $GithubReposCopyWith(
           GithubRepos value, $Res Function(GithubRepos) then) =
       _$GithubReposCopyWithImpl<$Res, GithubRepos>;
+  @useResult
+  $Res call({String repoName});
 }
 
 /// @nodoc
@@ -33,13 +41,30 @@ class _$GithubReposCopyWithImpl<$Res, $Val extends GithubRepos>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? repoName = null,
+  }) {
+    return _then(_value.copyWith(
+      repoName: null == repoName
+          ? _value.repoName
+          : repoName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$GithubReposImplCopyWith<$Res> {
+abstract class _$$GithubReposImplCopyWith<$Res>
+    implements $GithubReposCopyWith<$Res> {
   factory _$$GithubReposImplCopyWith(
           _$GithubReposImpl value, $Res Function(_$GithubReposImpl) then) =
       __$$GithubReposImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String repoName});
 }
 
 /// @nodoc
@@ -49,29 +74,62 @@ class __$$GithubReposImplCopyWithImpl<$Res>
   __$$GithubReposImplCopyWithImpl(
       _$GithubReposImpl _value, $Res Function(_$GithubReposImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? repoName = null,
+  }) {
+    return _then(_$GithubReposImpl(
+      repoName: null == repoName
+          ? _value.repoName
+          : repoName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$GithubReposImpl extends _GithubRepos {
-  const _$GithubReposImpl() : super._();
+  const _$GithubReposImpl({required this.repoName}) : super._();
+
+  @override
+  final String repoName;
 
   @override
   String toString() {
-    return 'GithubRepos()';
+    return 'GithubRepos(repoName: $repoName)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GithubReposImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$GithubReposImpl &&
+            (identical(other.repoName, repoName) ||
+                other.repoName == repoName));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, repoName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GithubReposImplCopyWith<_$GithubReposImpl> get copyWith =>
+      __$$GithubReposImplCopyWithImpl<_$GithubReposImpl>(this, _$identity);
 }
 
 abstract class _GithubRepos extends GithubRepos {
-  const factory _GithubRepos() = _$GithubReposImpl;
+  const factory _GithubRepos({required final String repoName}) =
+      _$GithubReposImpl;
   const _GithubRepos._() : super._();
+
+  @override
+  String get repoName;
+  @override
+  @JsonKey(ignore: true)
+  _$$GithubReposImplCopyWith<_$GithubReposImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
