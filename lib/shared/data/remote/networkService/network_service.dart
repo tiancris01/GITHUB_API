@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:githun_api_commits/shared/domain/model/api_response.dart';
-import 'package:githun_api_commits/shared/exceptions/http_exception.dart';
+import 'package:githun_api_commits/shared/data/model/api_response.dart';
+import 'package:githun_api_commits/shared/data/model/exceptions/http_exception.dart';
 
 abstract class NetworkService {
   String get baseUrl;
