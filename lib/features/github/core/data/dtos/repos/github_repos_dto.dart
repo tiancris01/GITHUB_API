@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:githun_api_commits/features/github/repo_filters/domain/entities/repos/github_repos.dart';
+import 'package:githun_api_commits/features/github/core/domain/entities/repos/github_repos.dart';
 
 part 'github_repos_dto.freezed.dart';
 part 'github_repos_dto.g.dart';
