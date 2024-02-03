@@ -1,18 +1,19 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:githun_api_commits/app/core/design/design.dart';
 import 'package:githun_api_commits/app/gen/assets.gen.dart';
 
 @RoutePage()
-class DashboardScreen extends StatefulWidget {
+class DashboardScreen extends ConsumerStatefulWidget {
   static const String routeName = '/dashboardScreen';
 
   const DashboardScreen({Key? key}) : super(key: key);
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  ConsumerState<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

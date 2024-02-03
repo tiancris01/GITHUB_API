@@ -28,7 +28,7 @@ class ThemeFoundation {
       brightness: Brightness.dark,
       fontFamily: FontFamilyToken.inter,
       primaryColor: ColorsFoundation.primary,
-      colorScheme: const ColorScheme.light(
+      colorScheme: const ColorScheme.dark(
         primary: ColorsFoundation.primary,
         secondary: ColorsFoundation.secondary,
         error: ColorsFoundation.error,
