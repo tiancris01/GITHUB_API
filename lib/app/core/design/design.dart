@@ -8,7 +8,7 @@ export 'package:githun_api_commits/app/gen/fonts.gen.dart';
 part './foundations/colors.dart';
 part './foundations/fonts.dart';
 part './foundations/styles.dart';
-part './foundations/theme.dart';
+part '../../../shared/theme/theme.dart';
 
 part './tokens/fonts.dart';
 part './tokens/styles.dart';

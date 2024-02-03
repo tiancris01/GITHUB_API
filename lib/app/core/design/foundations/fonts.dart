@@ -1,64 +1,59 @@
 part of '../design.dart';
 
 class FontsFoundation {
-  FontsFoundation._internal();
+  static TextTheme get textTheme => const TextTheme(
+        bodyLarge: FontsToken.h1,
+        bodyMedium: FontsToken.h2,
+        titleMedium: FontsToken.h3,
+        titleSmall: FontsToken.h4,
+        displayLarge: FontsToken.bodyLg,
+        displayMedium: FontsToken.body,
+        displaySmall: FontsToken.bodySm,
+        headlineMedium: FontsToken.bodyXs,
+      );
 
-  static final textStyle = _TextStyle._();
-  static final buttonTextStyle = _ButtonTextStyle._();
-  static final textFieldStyle = _TextFieldStyle._();
-  static final modal = _ModalStyle._();
-}
+  static TextTheme get lightTextTheme => TextTheme(
+        bodyLarge: FontsToken.h1.copyWith(color: ColorsFoundation.tertiary),
+        bodyMedium: FontsToken.h2.copyWith(color: ColorsFoundation.tertiary),
+        titleMedium: FontsToken.h3.copyWith(color: ColorsFoundation.tertiary),
+        titleSmall: FontsToken.h4.copyWith(color: ColorsFoundation.tertiary),
+        displayLarge:
+            FontsToken.bodyLg.copyWith(color: ColorsFoundation.tertiary),
+        displayMedium:
+            FontsToken.body.copyWith(color: ColorsFoundation.tertiary),
+        displaySmall:
+            FontsToken.bodySm.copyWith(color: ColorsFoundation.tertiary),
+        headlineMedium:
+            FontsToken.bodyXs.copyWith(color: ColorsFoundation.tertiary),
+      );
 
-class _ModalStyle {
-  final menuItemText =
-      FontsToken.interSb16.copyWith(color: ColorsFoundation.text.blackText);
+  static TextTheme get darkTextTheme => TextTheme(
+        bodyLarge: FontsToken.h1.copyWith(color: ColorsFoundation.quaternary),
+        bodyMedium: FontsToken.h2.copyWith(color: ColorsFoundation.quaternary),
+        titleMedium: FontsToken.h3.copyWith(color: ColorsFoundation.quaternary),
+        titleSmall: FontsToken.h4.copyWith(color: ColorsFoundation.quaternary),
+        displayLarge:
+            FontsToken.bodyLg.copyWith(color: ColorsFoundation.quaternary),
+        displayMedium:
+            FontsToken.body.copyWith(color: ColorsFoundation.quaternary),
+        displaySmall:
+            FontsToken.bodySm.copyWith(color: ColorsFoundation.quaternary),
+        headlineMedium:
+            FontsToken.bodyXs.copyWith(color: ColorsFoundation.quaternary),
+      );
 
-  _ModalStyle._();
-}
-
-class _TextStyle {
-  final headlineLarge =
-      FontsToken.interB32.copyWith(color: ColorsFoundation.text.blackText);
-  final headlineSmall =
-      FontsToken.interB24.copyWith(color: ColorsFoundation.text.blackText);
-  final titleLarge = FontsToken.interB20.copyWith(
-    color: ColorsFoundation.text.blackText,
-  );
-  final titleMedium = FontsToken.interSb16.copyWith(
-    color: ColorsFoundation.text.greenText,
-  );
-  final titleSmall = FontsToken.interSb14.copyWith(
-    color: ColorsFoundation.text.blackText,
-  );
-  final bodyLarge = FontsToken.interR16.copyWith(
-    color: ColorsFoundation.text.blackText,
-  );
-  final bodyMedium = FontsToken.interR14.copyWith(
-    color: ColorsFoundation.text.blackText,
-  );
-  final bodySmall = FontsToken.interR12.copyWith(
-    color: ColorsFoundation.text.blackText,
-  );
-  _TextStyle._();
-}
-
-class _ButtonTextStyle {
-  final buttonText =
-      FontsToken.interB16.copyWith(color: ColorsFoundation.text.textButton);
-  final elevatedButtonText =
-      FontsToken.interB16.copyWith(color: ColorsFoundation.text.whiteText);
-
-  _ButtonTextStyle._();
-}
-
-class _TextFieldStyle {
-  final hitTextStyle =
-      FontsToken.interR16.copyWith(color: ColorsFoundation.text.blackText);
-  final inputTextStyle = FontsToken.interSb16
-      .copyWith(color: ColorsFoundation.text.inputTextFieldColor);
-  final errorTextStyle =
-      FontsToken.interSb16.copyWith(color: ColorsFoundation.text.negativeText);
-  final labelTextField = FontsToken.interR16
-      .copyWith(color: ColorsFoundation.text.labelTextFieldColor);
-  _TextFieldStyle._();
+  static TextTheme get primateTextTheme => TextTheme(
+        bodyLarge: FontsToken.h1.copyWith(color: ColorsFoundation.primary),
+        bodyMedium: FontsToken.h2.copyWith(color: ColorsFoundation.primary),
+        titleMedium: FontsToken.h3.copyWith(color: ColorsFoundation.primary),
+        titleSmall: FontsToken.h4.copyWith(color: ColorsFoundation.primary),
+        displayLarge:
+            FontsToken.bodyLg.copyWith(color: ColorsFoundation.primary),
+        displayMedium:
+            FontsToken.body.copyWith(color: ColorsFoundation.primary),
+        displaySmall:
+            FontsToken.bodySm.copyWith(color: ColorsFoundation.primary),
+        headlineMedium:
+            FontsToken.bodyXs.copyWith(color: ColorsFoundation.primary),
+      );
 }
