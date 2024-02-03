@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:githun_api_commits/features/github/repo_filters/domain/entities/branches/repo_branches.dart';
+import 'package:githun_api_commits/features/github/core/domain/entities/branches/repo_branches.dart';
 
 part 'repo_branches_dto.freezed.dart';
 part 'repo_branches_dto.g.dart';
