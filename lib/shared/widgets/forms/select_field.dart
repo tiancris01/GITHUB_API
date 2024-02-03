@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:githun_api_commits/shared/widgets/forms/helpers/forms.dart';
-import 'package:githun_api_commits/shared/widgets/forms/modals/default_modal.dart';
-import 'package:githun_api_commits/shared/widgets/forms/overlay/overlay_manager.dart';
+import 'package:githun_api_commits/shared/widgets/modals/default_modal.dart';
+import 'package:githun_api_commits/shared/widgets/overlay/overlay_manager.dart';
 import 'package:githun_api_commits/shared/widgets/forms/select_list.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class UDGReactiveSelectField<T extends Object> extends StatelessWidget {
+class GithubReactiveSelectField<T extends Object> extends StatelessWidget {
   final String label;
   final String formControlName;
   final String description;
@@ -16,7 +16,7 @@ class UDGReactiveSelectField<T extends Object> extends StatelessWidget {
   final Map<String, String Function(dynamic)>? validationMessages;
   final void Function()? selectFunction;
 
-  const UDGReactiveSelectField.builder({
+  const GithubReactiveSelectField.builder({
     super.key,
     required this.formControlName,
     this.validationMessages,
@@ -28,7 +28,7 @@ class UDGReactiveSelectField<T extends Object> extends StatelessWidget {
     this.selectFunction,
   }) : label = '';
 
-  const UDGReactiveSelectField.label({
+  const GithubReactiveSelectField.label({
     super.key,
     required this.label,
     required this.formControlName,

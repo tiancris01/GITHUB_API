@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:githun_api_commits/app/core/design/design.dart';
-import 'package:githun_api_commits/shared/widgets/forms/modals/default_dialog.dart';
-import 'package:githun_api_commits/shared/widgets/forms/overlay/overlay_manager.dart';
+import 'package:githun_api_commits/shared/widgets/modals/default_dialog.dart';
+import 'package:githun_api_commits/shared/widgets/overlay/overlay_manager.dart';
 
 typedef LabelSelectorFunction<T extends Object?> = String Function(T item);
 

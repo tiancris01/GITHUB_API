@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:udg_app/app/core/design/design.dart';
+import 'package:githun_api_commits/shared/widgets/modals/default_modal.dart';
 
 enum _Type { title, action, custom }
 
@@ -75,7 +75,6 @@ class DefaultDialog extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
                   title,
-                  style: FontsFoundation.of(context.brightness).subtitle.h2Sb20,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -153,14 +152,6 @@ class _BuildBody extends StatelessWidget {
                       onPressed: _cancelFunction,
                       child: Text(
                         _cancelText ?? '',
-                        style: FontsFoundation.of(context.brightness)
-                            .paragraph
-                            .b1M16
-                            .copyWith(
-                              color: context.brightness == Brightness.light
-                                  ? ColorsFoundation.text.black
-                                  : ColorsFoundation.text.light,
-                            ),
                       ),
                     ),
                   ),
@@ -169,8 +160,6 @@ class _BuildBody extends StatelessWidget {
                   ),
                   Expanded(
                     child: ElevatedButton(
-                      style: StylesFoundation.of(context.brightness)
-                          .elevatedButtonStyleNegative,
                       onPressed: _selectFunction,
                       child: Text(_selectText ?? ''),
                     ),
