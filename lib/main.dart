@@ -9,5 +9,5 @@ Future<void> main() => mainCommon(EnvType.dev);
 Future<void> mainCommon(EnvType env) async {
   await Environment().initConfig(env: env);
 
-  runApp(const ProviderScope(child: GithubApp()));
+  runApp(ProviderScope(child: GithubApp()));
 }
