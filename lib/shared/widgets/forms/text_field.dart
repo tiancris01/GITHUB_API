@@ -29,16 +29,17 @@ class GithubReactiveTextField extends StatelessWidget {
       children: [
         const SizedBox(height: 8),
         ReactiveTextField(
-            minLines: minLines ?? 1,
-            maxLines: maxLines ?? 1,
-            formControlName: formControlName,
-            validationMessages: validationMessages == null
-                ? GithubForms.validationMessages()
-                : GithubForms.validationMessagesWithParameters(
-                    validationMessages!),
-            keyboardType: keyboardType ??
-                GithubForms.keyBoarTypeByFormControl(formControlName),
-            decoration: InputDecoration(hintText: hintText)),
+          minLines: minLines ?? 1,
+          maxLines: maxLines ?? 1,
+          formControlName: formControlName,
+          validationMessages: validationMessages == null
+              ? GithubForms.validationMessages()
+              : GithubForms.validationMessagesWithParameters(
+                  validationMessages!),
+          keyboardType: keyboardType ??
+              GithubForms.keyBoarTypeByFormControl(formControlName),
+          decoration: InputDecoration(hintText: hintText),
+        ),
       ],
     );
   }

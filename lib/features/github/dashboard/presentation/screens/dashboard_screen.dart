@@ -2,7 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:githun_api_commits/app/core/design/design.dart';
 import 'package:githun_api_commits/app/gen/assets.gen.dart';
-import 'package:githun_api_commits/features/github/dashboard/presentation/providers/dashboar_form_grup.dart';
+import 'package:githun_api_commits/features/github/dashboard/presentation/providers/dashboard_form_grup.dart';
+import 'package:githun_api_commits/features/github/dashboard/presentation/providers/deshboard_repos.dart';
 import 'package:githun_api_commits/shared/widgets/forms/select_field.dart';
 import 'package:githun_api_commits/shared/widgets/forms/text_field.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -21,6 +22,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     final form = ref.watch(dashboardFormGrupProvider);
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(
@@ -44,14 +46,23 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       formControlName: 'username',
                     ),
                     const SizedBox(height: 20),
-                    // GithubReactiveSelectField.label(
-                    //   label: 'Repository',
-                    //   formControlName: 'repos',
-                    //   description: '',
-                    //   items: items,
-                    //   itemLabelSelector: itemLabelSelector,
-                    //   selectFunction: () {},
-                    // )
+                    GithubReactiveSelectField<String>.label(
+                      label: 'Repository',
+                      formControlName: 'repos',
+                      description: '',
+                      items: [],
+                      itemLabelSelector: (item) {
+                        return '';
+                      },
+                      selectFunction: () {},
+                      parentFormControlName: 'username',
+                    ),
+                    ReactiveFormConsumer(builder: (context, form, child) {
+                      return ElevatedButton(
+                        onPressed: form.valid ? () {} : null,
+                        child: const Text('Search'),
+                      );
+                    }),
                   ],
                 ),
               )

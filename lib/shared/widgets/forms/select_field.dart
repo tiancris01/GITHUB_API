@@ -1,48 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:githun_api_commits/features/github/dashboard/presentation/providers/dashboard_form_grup.dart';
 import 'package:githun_api_commits/shared/widgets/forms/helpers/forms.dart';
 import 'package:githun_api_commits/shared/widgets/modals/default_modal.dart';
 import 'package:githun_api_commits/shared/widgets/overlay/overlay_manager.dart';
 import 'package:githun_api_commits/shared/widgets/forms/select_list.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class GithubReactiveSelectField<T extends Object> extends StatelessWidget {
+class GithubReactiveSelectField<T extends Object> extends ConsumerWidget {
+  final String? hint;
   final String label;
-  final String formControlName;
-  final String description;
   final List<T> items;
+  final String description;
+  final String formControlName;
+  final String? parentFormControlName;
   final LabelSelectorFunction<T> itemLabelSelector;
   final List<List<SelectableListDescription>>? listSubDescription;
-  final String? hint;
   final Map<String, String Function(dynamic)>? validationMessages;
   final void Function()? selectFunction;
 
   const GithubReactiveSelectField.builder({
     super.key,
-    required this.formControlName,
-    this.validationMessages,
-    this.listSubDescription,
-    required this.description,
-    required this.items,
-    required this.itemLabelSelector,
     this.hint,
     this.selectFunction,
+    required this.items,
+    this.listSubDescription,
+    this.validationMessages,
+    required this.description,
+    this.parentFormControlName,
+    required this.formControlName,
+    required this.itemLabelSelector,
   }) : label = '';
 
   const GithubReactiveSelectField.label({
     super.key,
+    this.hint,
     required this.label,
-    required this.formControlName,
+    required this.items,
+    this.selectFunction,
     this.validationMessages,
     this.listSubDescription,
     required this.description,
-    required this.items,
+    this.parentFormControlName,
+    required this.formControlName,
     required this.itemLabelSelector,
-    this.hint,
-    this.selectFunction,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final userFormControl = ref
+        .watch(dashboardFormGrupProvider)
+        .controls[parentFormControlName] as FormControl<String>;
+
+    final isUserNameDirty = ref
+        .watch(dashboardFormGrupProvider.notifier)
+        .isUserNameDirty(userFormControl);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

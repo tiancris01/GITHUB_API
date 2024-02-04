@@ -1,3 +1,4 @@
+import 'package:githun_api_commits/app/core/design/design.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -9,15 +10,20 @@ class DashboardFormGrup extends _$DashboardFormGrup {
   FormGroup build() {
     final form = FormGroup({
       'username': FormControl<String>(
-        validators: [Validators.required, Validators.pattern(r'^[a-zA-Z]+$')],
+        validators: [Validators.required],
       ),
       'repos': FormControl<String>(
+        disabled: true,
         validators: [Validators.required],
       ),
-      'branch': FormControl<String>(
-        validators: [Validators.required],
-      ),
+      // 'branch': FormControl<String>(
+      //   validators: [Validators.required],
+      // ),
     });
     return form;
+  }
+
+  bool isUserNameDirty(FormControl formControl) {
+    return formControl.dirty;
   }
 }

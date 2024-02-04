@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'dashboard_form_grup.dart';
+part of 'dio_network_service_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dashboardFormGrupHash() => r'f35f103f1c149838a4c24d7d6399442c69ed8b6f';
+String _$dioNetworkServiceRefHash() =>
+    r'408ded5884dc59ca394bba56336224a5a0e451a9';
 
-/// See also [DashboardFormGrup].
-@ProviderFor(DashboardFormGrup)
-final dashboardFormGrupProvider =
-    AutoDisposeNotifierProvider<DashboardFormGrup, FormGroup>.internal(
-  DashboardFormGrup.new,
-  name: r'dashboardFormGrupProvider',
+/// See also [dioNetworkServiceRef].
+@ProviderFor(dioNetworkServiceRef)
+final dioNetworkServiceRefProvider =
+    AutoDisposeProvider<NetworkService>.internal(
+  dioNetworkServiceRef,
+  name: r'dioNetworkServiceRefProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$dashboardFormGrupHash,
+      : _$dioNetworkServiceRefHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$DashboardFormGrup = AutoDisposeNotifier<FormGroup>;
+typedef DioNetworkServiceRefRef = AutoDisposeProviderRef<NetworkService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

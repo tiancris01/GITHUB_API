@@ -60,12 +60,12 @@ class DashboardRemoteDataSource implements DashboardDataSource {
       (l) => Left(l),
       (r) {
         final jsonData = r.data;
-        if (jsonData == null) {
+        if (jsonData == null || jsonData.isEmpty) {
           return const Left(
             AppException(
               identifier: 'search PaginatedData',
               statusCode: 0,
-              message: 'The data is not in the valid format.',
+              message: 'User not valid or has no repositories.',
             ),
           );
         }
