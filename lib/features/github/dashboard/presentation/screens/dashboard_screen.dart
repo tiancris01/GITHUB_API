@@ -5,6 +5,7 @@ import 'package:githun_api_commits/app/gen/assets.gen.dart';
 import 'package:githun_api_commits/features/github/core/domain/entities/branches/repo_branches.dart';
 import 'package:githun_api_commits/features/github/core/domain/entities/repos/github_repos.dart';
 import 'package:githun_api_commits/features/github/dashboard/presentation/providers/dashboard_form_grup.dart';
+import 'package:githun_api_commits/routes/app_route.dart';
 import 'package:githun_api_commits/shared/widgets/forms/select_field.dart';
 import 'package:githun_api_commits/shared/widgets/forms/text_field.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -24,13 +25,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   Widget build(BuildContext context) {
     final form = ref.watch(dashboardFormControllerProvider);
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(
-          top: 100,
-          left: 40,
-          right: 40,
-        ),
-        child: Center(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: 100,
+            left: 40,
+            right: 40,
+            bottom: 40,
+          ),
           child: Column(
             children: [
               Image.asset(
@@ -76,9 +78,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     ),
                     const SizedBox(height: 20),
                     ReactiveFormConsumer(builder: (context, form, child) {
-                      return ElevatedButton(
-                        onPressed: form.valid ? () {} : null,
-                        child: const Text('Search'),
+                      return SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: form.valid
+                              ? () {
+                                  context.router.push(
+                                    CommitRoute(
+                                      userName: form.control('username').value,
+                                      repo: form.control('repos').value,
+                                      branch: form.control('branch').value,
+                                    ),
+                                  );
+                                }
+                              : null,
+                          child: const Text('Search'),
+                        ),
                       );
                     }),
                   ],

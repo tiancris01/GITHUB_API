@@ -15,6 +15,17 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    CommitRoute.name: (routeData) {
+      final args = routeData.argsAs<CommitRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CommitScreen(
+          userName: args.userName,
+          repo: args.repo,
+          branch: args.branch,
+        ),
+      );
+    },
     DashboardRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -28,6 +39,48 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [CommitScreen]
+class CommitRoute extends PageRouteInfo<CommitRouteArgs> {
+  CommitRoute({
+    required String userName,
+    required String repo,
+    required String branch,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CommitRoute.name,
+          args: CommitRouteArgs(
+            userName: userName,
+            repo: repo,
+            branch: branch,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CommitRoute';
+
+  static const PageInfo<CommitRouteArgs> page = PageInfo<CommitRouteArgs>(name);
+}
+
+class CommitRouteArgs {
+  const CommitRouteArgs({
+    required this.userName,
+    required this.repo,
+    required this.branch,
+  });
+
+  final String userName;
+
+  final String repo;
+
+  final String branch;
+
+  @override
+  String toString() {
+    return 'CommitRouteArgs{userName: $userName, repo: $repo, branch: $branch}';
+  }
 }
 
 /// generated route for

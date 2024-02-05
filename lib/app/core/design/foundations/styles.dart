@@ -47,9 +47,9 @@ class _ElevatedButtonStyle {
     backgroundColor: ColorsFoundation.background.green,
     disabledBackgroundColor: ColorsFoundation.action.disabled,
     disabledForegroundColor: ColorsFoundation.action.disabledWhite,
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
+    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
     shape: RoundedRectangleBorder(
-      borderRadius: StylesToken.borderR25,
+      borderRadius: StylesToken.borderR16,
       side: StylesToken.borderSW1.copyWith(
         color: Colors.transparent,
       ),
