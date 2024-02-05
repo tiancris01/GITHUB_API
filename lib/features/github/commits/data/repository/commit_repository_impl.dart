@@ -8,10 +8,10 @@ class CommitRepositoryImpl implements CommitRepository {
   CommitRepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<List<Commit>> getCommits(
+  Future<List<CommitEntitie>> getCommits(
       String userName, String repo, String branch) async {
     final commits = await remoteDataSource.getCommits(userName, repo, branch);
-    final List<Commit> commitsList = [];
+    final List<CommitEntitie> commitsList = [];
     for (var item in commits) {
       commitsList.add(item.toDomain());
     }

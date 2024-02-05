@@ -15,10 +15,171 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Commit {
-  CommitAutor? get commiAuthor => throw _privateConstructorUsedError;
+mixin _$CommitEntitie {
+  Commit get commit => throw _privateConstructorUsedError;
   Author get author => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CommitEntitieCopyWith<CommitEntitie> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CommitEntitieCopyWith<$Res> {
+  factory $CommitEntitieCopyWith(
+          CommitEntitie value, $Res Function(CommitEntitie) then) =
+      _$CommitEntitieCopyWithImpl<$Res, CommitEntitie>;
+  @useResult
+  $Res call({Commit commit, Author author});
+
+  $CommitCopyWith<$Res> get commit;
+  $AuthorCopyWith<$Res> get author;
+}
+
+/// @nodoc
+class _$CommitEntitieCopyWithImpl<$Res, $Val extends CommitEntitie>
+    implements $CommitEntitieCopyWith<$Res> {
+  _$CommitEntitieCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? commit = null,
+    Object? author = null,
+  }) {
+    return _then(_value.copyWith(
+      commit: null == commit
+          ? _value.commit
+          : commit // ignore: cast_nullable_to_non_nullable
+              as Commit,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as Author,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CommitCopyWith<$Res> get commit {
+    return $CommitCopyWith<$Res>(_value.commit, (value) {
+      return _then(_value.copyWith(commit: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AuthorCopyWith<$Res> get author {
+    return $AuthorCopyWith<$Res>(_value.author, (value) {
+      return _then(_value.copyWith(author: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$CommitsEntitieImplCopyWith<$Res>
+    implements $CommitEntitieCopyWith<$Res> {
+  factory _$$CommitsEntitieImplCopyWith(_$CommitsEntitieImpl value,
+          $Res Function(_$CommitsEntitieImpl) then) =
+      __$$CommitsEntitieImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Commit commit, Author author});
+
+  @override
+  $CommitCopyWith<$Res> get commit;
+  @override
+  $AuthorCopyWith<$Res> get author;
+}
+
+/// @nodoc
+class __$$CommitsEntitieImplCopyWithImpl<$Res>
+    extends _$CommitEntitieCopyWithImpl<$Res, _$CommitsEntitieImpl>
+    implements _$$CommitsEntitieImplCopyWith<$Res> {
+  __$$CommitsEntitieImplCopyWithImpl(
+      _$CommitsEntitieImpl _value, $Res Function(_$CommitsEntitieImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? commit = null,
+    Object? author = null,
+  }) {
+    return _then(_$CommitsEntitieImpl(
+      commit: null == commit
+          ? _value.commit
+          : commit // ignore: cast_nullable_to_non_nullable
+              as Commit,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as Author,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CommitsEntitieImpl extends _CommitsEntitie {
+  const _$CommitsEntitieImpl({required this.commit, required this.author})
+      : super._();
+
+  @override
+  final Commit commit;
+  @override
+  final Author author;
+
+  @override
+  String toString() {
+    return 'CommitEntitie(commit: $commit, author: $author)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CommitsEntitieImpl &&
+            (identical(other.commit, commit) || other.commit == commit) &&
+            (identical(other.author, author) || other.author == author));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, commit, author);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CommitsEntitieImplCopyWith<_$CommitsEntitieImpl> get copyWith =>
+      __$$CommitsEntitieImplCopyWithImpl<_$CommitsEntitieImpl>(
+          this, _$identity);
+}
+
+abstract class _CommitsEntitie extends CommitEntitie {
+  const factory _CommitsEntitie(
+      {required final Commit commit,
+      required final Author author}) = _$CommitsEntitieImpl;
+  const _CommitsEntitie._() : super._();
+
+  @override
+  Commit get commit;
+  @override
+  Author get author;
+  @override
+  @JsonKey(ignore: true)
+  _$$CommitsEntitieImplCopyWith<_$CommitsEntitieImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Commit {
   String get message => throw _privateConstructorUsedError;
+  CommitAutor get commitAuthor => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CommitCopyWith<Commit> get copyWith => throw _privateConstructorUsedError;
@@ -29,10 +190,9 @@ abstract class $CommitCopyWith<$Res> {
   factory $CommitCopyWith(Commit value, $Res Function(Commit) then) =
       _$CommitCopyWithImpl<$Res, Commit>;
   @useResult
-  $Res call({CommitAutor? commiAuthor, Author author, String message});
+  $Res call({String message, CommitAutor commitAuthor});
 
-  $CommitAutorCopyWith<$Res>? get commiAuthor;
-  $AuthorCopyWith<$Res> get author;
+  $CommitAutorCopyWith<$Res> get commitAuthor;
 }
 
 /// @nodoc
@@ -48,150 +208,119 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? commiAuthor = freezed,
-    Object? author = null,
     Object? message = null,
+    Object? commitAuthor = null,
   }) {
     return _then(_value.copyWith(
-      commiAuthor: freezed == commiAuthor
-          ? _value.commiAuthor
-          : commiAuthor // ignore: cast_nullable_to_non_nullable
-              as CommitAutor?,
-      author: null == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as Author,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      commitAuthor: null == commitAuthor
+          ? _value.commitAuthor
+          : commitAuthor // ignore: cast_nullable_to_non_nullable
+              as CommitAutor,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CommitAutorCopyWith<$Res>? get commiAuthor {
-    if (_value.commiAuthor == null) {
-      return null;
-    }
-
-    return $CommitAutorCopyWith<$Res>(_value.commiAuthor!, (value) {
-      return _then(_value.copyWith(commiAuthor: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AuthorCopyWith<$Res> get author {
-    return $AuthorCopyWith<$Res>(_value.author, (value) {
-      return _then(_value.copyWith(author: value) as $Val);
+  $CommitAutorCopyWith<$Res> get commitAuthor {
+    return $CommitAutorCopyWith<$Res>(_value.commitAuthor, (value) {
+      return _then(_value.copyWith(commitAuthor: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$CommitsImplCopyWith<$Res> implements $CommitCopyWith<$Res> {
-  factory _$$CommitsImplCopyWith(
-          _$CommitsImpl value, $Res Function(_$CommitsImpl) then) =
-      __$$CommitsImplCopyWithImpl<$Res>;
+abstract class _$$CommitImplCopyWith<$Res> implements $CommitCopyWith<$Res> {
+  factory _$$CommitImplCopyWith(
+          _$CommitImpl value, $Res Function(_$CommitImpl) then) =
+      __$$CommitImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CommitAutor? commiAuthor, Author author, String message});
+  $Res call({String message, CommitAutor commitAuthor});
 
   @override
-  $CommitAutorCopyWith<$Res>? get commiAuthor;
-  @override
-  $AuthorCopyWith<$Res> get author;
+  $CommitAutorCopyWith<$Res> get commitAuthor;
 }
 
 /// @nodoc
-class __$$CommitsImplCopyWithImpl<$Res>
-    extends _$CommitCopyWithImpl<$Res, _$CommitsImpl>
-    implements _$$CommitsImplCopyWith<$Res> {
-  __$$CommitsImplCopyWithImpl(
-      _$CommitsImpl _value, $Res Function(_$CommitsImpl) _then)
+class __$$CommitImplCopyWithImpl<$Res>
+    extends _$CommitCopyWithImpl<$Res, _$CommitImpl>
+    implements _$$CommitImplCopyWith<$Res> {
+  __$$CommitImplCopyWithImpl(
+      _$CommitImpl _value, $Res Function(_$CommitImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? commiAuthor = freezed,
-    Object? author = null,
     Object? message = null,
+    Object? commitAuthor = null,
   }) {
-    return _then(_$CommitsImpl(
-      commiAuthor: freezed == commiAuthor
-          ? _value.commiAuthor
-          : commiAuthor // ignore: cast_nullable_to_non_nullable
-              as CommitAutor?,
-      author: null == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
-              as Author,
+    return _then(_$CommitImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      commitAuthor: null == commitAuthor
+          ? _value.commitAuthor
+          : commitAuthor // ignore: cast_nullable_to_non_nullable
+              as CommitAutor,
     ));
   }
 }
 
 /// @nodoc
 
-class _$CommitsImpl extends _Commits {
-  const _$CommitsImpl(
-      {required this.commiAuthor, required this.author, required this.message})
+class _$CommitImpl extends _Commit {
+  const _$CommitImpl({required this.message, required this.commitAuthor})
       : super._();
 
   @override
-  final CommitAutor? commiAuthor;
-  @override
-  final Author author;
-  @override
   final String message;
+  @override
+  final CommitAutor commitAuthor;
 
   @override
   String toString() {
-    return 'Commit(commiAuthor: $commiAuthor, author: $author, message: $message)';
+    return 'Commit(message: $message, commitAuthor: $commitAuthor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommitsImpl &&
-            (identical(other.commiAuthor, commiAuthor) ||
-                other.commiAuthor == commiAuthor) &&
-            (identical(other.author, author) || other.author == author) &&
-            (identical(other.message, message) || other.message == message));
+            other is _$CommitImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.commitAuthor, commitAuthor) ||
+                other.commitAuthor == commitAuthor));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, commiAuthor, author, message);
+  int get hashCode => Object.hash(runtimeType, message, commitAuthor);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CommitsImplCopyWith<_$CommitsImpl> get copyWith =>
-      __$$CommitsImplCopyWithImpl<_$CommitsImpl>(this, _$identity);
+  _$$CommitImplCopyWith<_$CommitImpl> get copyWith =>
+      __$$CommitImplCopyWithImpl<_$CommitImpl>(this, _$identity);
 }
 
-abstract class _Commits extends Commit {
-  const factory _Commits(
-      {required final CommitAutor? commiAuthor,
-      required final Author author,
-      required final String message}) = _$CommitsImpl;
-  const _Commits._() : super._();
+abstract class _Commit extends Commit {
+  const factory _Commit(
+      {required final String message,
+      required final CommitAutor commitAuthor}) = _$CommitImpl;
+  const _Commit._() : super._();
 
-  @override
-  CommitAutor? get commiAuthor;
-  @override
-  Author get author;
   @override
   String get message;
   @override
+  CommitAutor get commitAuthor;
+  @override
   @JsonKey(ignore: true)
-  _$$CommitsImplCopyWith<_$CommitsImpl> get copyWith =>
+  _$$CommitImplCopyWith<_$CommitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

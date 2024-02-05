@@ -3,13 +3,21 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'commits_entitie.freezed.dart';
 
 @freezed
+class CommitEntitie with _$CommitEntitie {
+  const CommitEntitie._();
+  const factory CommitEntitie({
+    required Commit commit,
+    required Author author,
+  }) = _CommitsEntitie;
+}
+
+@freezed
 class Commit with _$Commit {
   const Commit._();
   const factory Commit({
-    required CommitAutor? commiAuthor,
-    required Author author,
     required String message,
-  }) = _Commits;
+    required CommitAutor commitAuthor,
+  }) = _Commit;
 }
 
 @freezed

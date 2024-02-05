@@ -334,15 +334,182 @@ abstract class _CommitAuthorDTO extends CommitAuthorDTO {
       throw _privateConstructorUsedError;
 }
 
+CommitDTO _$CommitDTOFromJson(Map<String, dynamic> json) {
+  return _CommitDTO.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CommitDTO {
+  CommitAuthorDTO get author => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CommitDTOCopyWith<CommitDTO> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CommitDTOCopyWith<$Res> {
+  factory $CommitDTOCopyWith(CommitDTO value, $Res Function(CommitDTO) then) =
+      _$CommitDTOCopyWithImpl<$Res, CommitDTO>;
+  @useResult
+  $Res call({CommitAuthorDTO author, String message});
+
+  $CommitAuthorDTOCopyWith<$Res> get author;
+}
+
+/// @nodoc
+class _$CommitDTOCopyWithImpl<$Res, $Val extends CommitDTO>
+    implements $CommitDTOCopyWith<$Res> {
+  _$CommitDTOCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? author = null,
+    Object? message = null,
+  }) {
+    return _then(_value.copyWith(
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as CommitAuthorDTO,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CommitAuthorDTOCopyWith<$Res> get author {
+    return $CommitAuthorDTOCopyWith<$Res>(_value.author, (value) {
+      return _then(_value.copyWith(author: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$CommitDTOImplCopyWith<$Res>
+    implements $CommitDTOCopyWith<$Res> {
+  factory _$$CommitDTOImplCopyWith(
+          _$CommitDTOImpl value, $Res Function(_$CommitDTOImpl) then) =
+      __$$CommitDTOImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CommitAuthorDTO author, String message});
+
+  @override
+  $CommitAuthorDTOCopyWith<$Res> get author;
+}
+
+/// @nodoc
+class __$$CommitDTOImplCopyWithImpl<$Res>
+    extends _$CommitDTOCopyWithImpl<$Res, _$CommitDTOImpl>
+    implements _$$CommitDTOImplCopyWith<$Res> {
+  __$$CommitDTOImplCopyWithImpl(
+      _$CommitDTOImpl _value, $Res Function(_$CommitDTOImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? author = null,
+    Object? message = null,
+  }) {
+    return _then(_$CommitDTOImpl(
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as CommitAuthorDTO,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CommitDTOImpl extends _CommitDTO {
+  const _$CommitDTOImpl({required this.author, required this.message})
+      : super._();
+
+  factory _$CommitDTOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommitDTOImplFromJson(json);
+
+  @override
+  final CommitAuthorDTO author;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CommitDTO(author: $author, message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CommitDTOImpl &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, author, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CommitDTOImplCopyWith<_$CommitDTOImpl> get copyWith =>
+      __$$CommitDTOImplCopyWithImpl<_$CommitDTOImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CommitDTOImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CommitDTO extends CommitDTO {
+  const factory _CommitDTO(
+      {required final CommitAuthorDTO author,
+      required final String message}) = _$CommitDTOImpl;
+  const _CommitDTO._() : super._();
+
+  factory _CommitDTO.fromJson(Map<String, dynamic> json) =
+      _$CommitDTOImpl.fromJson;
+
+  @override
+  CommitAuthorDTO get author;
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$CommitDTOImplCopyWith<_$CommitDTOImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 CommitsDTO _$CommitsDTOFromJson(Map<String, dynamic> json) {
   return _CommitsDTO.fromJson(json);
 }
 
 /// @nodoc
 mixin _$CommitsDTO {
-  CommitAuthorDTO? get commitAuthor => throw _privateConstructorUsedError;
+  CommitDTO? get commit => throw _privateConstructorUsedError;
   AuthorDto get author => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -356,9 +523,9 @@ abstract class $CommitsDTOCopyWith<$Res> {
           CommitsDTO value, $Res Function(CommitsDTO) then) =
       _$CommitsDTOCopyWithImpl<$Res, CommitsDTO>;
   @useResult
-  $Res call({CommitAuthorDTO? commitAuthor, AuthorDto author, String message});
+  $Res call({CommitDTO? commit, AuthorDto author});
 
-  $CommitAuthorDTOCopyWith<$Res>? get commitAuthor;
+  $CommitDTOCopyWith<$Res>? get commit;
   $AuthorDtoCopyWith<$Res> get author;
 }
 
@@ -375,35 +542,30 @@ class _$CommitsDTOCopyWithImpl<$Res, $Val extends CommitsDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? commitAuthor = freezed,
+    Object? commit = freezed,
     Object? author = null,
-    Object? message = null,
   }) {
     return _then(_value.copyWith(
-      commitAuthor: freezed == commitAuthor
-          ? _value.commitAuthor
-          : commitAuthor // ignore: cast_nullable_to_non_nullable
-              as CommitAuthorDTO?,
+      commit: freezed == commit
+          ? _value.commit
+          : commit // ignore: cast_nullable_to_non_nullable
+              as CommitDTO?,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as AuthorDto,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CommitAuthorDTOCopyWith<$Res>? get commitAuthor {
-    if (_value.commitAuthor == null) {
+  $CommitDTOCopyWith<$Res>? get commit {
+    if (_value.commit == null) {
       return null;
     }
 
-    return $CommitAuthorDTOCopyWith<$Res>(_value.commitAuthor!, (value) {
-      return _then(_value.copyWith(commitAuthor: value) as $Val);
+    return $CommitDTOCopyWith<$Res>(_value.commit!, (value) {
+      return _then(_value.copyWith(commit: value) as $Val);
     });
   }
 
@@ -424,10 +586,10 @@ abstract class _$$CommitsDTOImplCopyWith<$Res>
       __$$CommitsDTOImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CommitAuthorDTO? commitAuthor, AuthorDto author, String message});
+  $Res call({CommitDTO? commit, AuthorDto author});
 
   @override
-  $CommitAuthorDTOCopyWith<$Res>? get commitAuthor;
+  $CommitDTOCopyWith<$Res>? get commit;
   @override
   $AuthorDtoCopyWith<$Res> get author;
 }
@@ -443,23 +605,18 @@ class __$$CommitsDTOImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? commitAuthor = freezed,
+    Object? commit = freezed,
     Object? author = null,
-    Object? message = null,
   }) {
     return _then(_$CommitsDTOImpl(
-      commitAuthor: freezed == commitAuthor
-          ? _value.commitAuthor
-          : commitAuthor // ignore: cast_nullable_to_non_nullable
-              as CommitAuthorDTO?,
+      commit: freezed == commit
+          ? _value.commit
+          : commit // ignore: cast_nullable_to_non_nullable
+              as CommitDTO?,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as AuthorDto,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -467,23 +624,20 @@ class __$$CommitsDTOImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CommitsDTOImpl extends _CommitsDTO {
-  const _$CommitsDTOImpl(
-      {required this.commitAuthor, required this.author, required this.message})
+  const _$CommitsDTOImpl({required this.commit, required this.author})
       : super._();
 
   factory _$CommitsDTOImpl.fromJson(Map<String, dynamic> json) =>
       _$$CommitsDTOImplFromJson(json);
 
   @override
-  final CommitAuthorDTO? commitAuthor;
+  final CommitDTO? commit;
   @override
   final AuthorDto author;
-  @override
-  final String message;
 
   @override
   String toString() {
-    return 'CommitsDTO(commitAuthor: $commitAuthor, author: $author, message: $message)';
+    return 'CommitsDTO(commit: $commit, author: $author)';
   }
 
   @override
@@ -491,15 +645,13 @@ class _$CommitsDTOImpl extends _CommitsDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CommitsDTOImpl &&
-            (identical(other.commitAuthor, commitAuthor) ||
-                other.commitAuthor == commitAuthor) &&
-            (identical(other.author, author) || other.author == author) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.commit, commit) || other.commit == commit) &&
+            (identical(other.author, author) || other.author == author));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, commitAuthor, author, message);
+  int get hashCode => Object.hash(runtimeType, commit, author);
 
   @JsonKey(ignore: true)
   @override
@@ -517,20 +669,17 @@ class _$CommitsDTOImpl extends _CommitsDTO {
 
 abstract class _CommitsDTO extends CommitsDTO {
   const factory _CommitsDTO(
-      {required final CommitAuthorDTO? commitAuthor,
-      required final AuthorDto author,
-      required final String message}) = _$CommitsDTOImpl;
+      {required final CommitDTO? commit,
+      required final AuthorDto author}) = _$CommitsDTOImpl;
   const _CommitsDTO._() : super._();
 
   factory _CommitsDTO.fromJson(Map<String, dynamic> json) =
       _$CommitsDTOImpl.fromJson;
 
   @override
-  CommitAuthorDTO? get commitAuthor;
+  CommitDTO? get commit;
   @override
   AuthorDto get author;
-  @override
-  String get message;
   @override
   @JsonKey(ignore: true)
   _$$CommitsDTOImplCopyWith<_$CommitsDTOImpl> get copyWith =>

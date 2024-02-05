@@ -14,6 +14,17 @@ class AuthorDto with _$AuthorDto {
 
   factory AuthorDto.fromJson(Map<String, dynamic> json) =>
       _$AuthorDtoFromJson(json);
+
+  factory AuthorDto.fromDomain(Author author) {
+    return AuthorDto(
+      avatarUrl: author.avatarUrl,
+    );
+  }
+  Author toDomain() {
+    return Author(
+      avatarUrl: avatarUrl,
+    );
+  }
 }
 
 @freezed
@@ -27,45 +38,66 @@ class CommitAuthorDTO with _$CommitAuthorDTO {
 
   factory CommitAuthorDTO.fromJson(Map<String, dynamic> json) =>
       _$CommitAuthorDTOFromJson(json);
+
+  factory CommitAuthorDTO.fromDomain(CommitAutor commitAutor) {
+    return CommitAuthorDTO(
+      name: commitAutor.name,
+      email: commitAutor.email,
+      date: commitAutor.date,
+    );
+  }
+
+  CommitAutor toDomain() {
+    return CommitAutor(
+      name: name,
+      email: email,
+      date: date,
+    );
+  }
+}
+
+@freezed
+class CommitDTO with _$CommitDTO {
+  const CommitDTO._();
+  const factory CommitDTO({
+    required CommitAuthorDTO author,
+    required String message,
+  }) = _CommitDTO;
+
+  factory CommitDTO.fromJson(Map<String, dynamic> json) =>
+      _$CommitDTOFromJson(json);
 }
 
 @freezed
 class CommitsDTO with _$CommitsDTO {
   const CommitsDTO._();
   const factory CommitsDTO({
-    required CommitAuthorDTO? commitAuthor,
+    required CommitDTO? commit,
     required AuthorDto author,
-    required String message,
   }) = _CommitsDTO;
 
   factory CommitsDTO.fromJson(Map<String, dynamic> json) =>
       _$CommitsDTOFromJson(json);
 
-  factory CommitsDTO.fromDomain(Commit commtis) {
+  factory CommitsDTO.fromDomain(CommitEntitie commtisEntitie) {
     return CommitsDTO(
-      commitAuthor: CommitAuthorDTO(
-        name: commtis.commiAuthor!.name,
-        email: commtis.commiAuthor!.email,
-        date: commtis.commiAuthor!.date,
+      commit: CommitDTO(
+        author: CommitAuthorDTO.fromDomain(commtisEntitie.commit.commitAuthor),
+        message: commtisEntitie.commit.message,
       ),
-      author: AuthorDto(
-        avatarUrl: commtis.author.avatarUrl,
-      ),
-      message: commtis.message,
+      author: AuthorDto.fromDomain(commtisEntitie.author),
     );
   }
 
-  Commit toDomain() {
-    return Commit(
-      commiAuthor: CommitAutor(
-        name: commitAuthor!.name,
-        email: commitAuthor!.email,
-        date: commitAuthor!.date,
+  CommitEntitie toDomain() {
+    return CommitEntitie(
+      commit: Commit(
+        commitAuthor: commit!.author.toDomain(),
+        message: commit!.message,
       ),
       author: Author(
-        avatarUrl: author.avatarUrl,
+        avatarUrl: author.toDomain().avatarUrl,
       ),
-      message: message,
     );
   }
 }

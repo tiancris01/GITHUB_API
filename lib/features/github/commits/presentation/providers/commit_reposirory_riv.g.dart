@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'commit_reposirory_riv.dart';
+part of 'commit_reposirory_prov.dart';
 
 // **************************************************************************
 // RiverpodGenerator

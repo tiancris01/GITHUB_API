@@ -32,19 +32,28 @@ Map<String, dynamic> _$$CommitAuthorDTOImplToJson(
       'date': instance.date,
     };
 
+_$CommitDTOImpl _$$CommitDTOImplFromJson(Map<String, dynamic> json) =>
+    _$CommitDTOImpl(
+      author: CommitAuthorDTO.fromJson(json['author'] as Map<String, dynamic>),
+      message: json['message'] as String,
+    );
+
+Map<String, dynamic> _$$CommitDTOImplToJson(_$CommitDTOImpl instance) =>
+    <String, dynamic>{
+      'author': instance.author,
+      'message': instance.message,
+    };
+
 _$CommitsDTOImpl _$$CommitsDTOImplFromJson(Map<String, dynamic> json) =>
     _$CommitsDTOImpl(
-      commitAuthor: json['commitAuthor'] == null
+      commit: json['commit'] == null
           ? null
-          : CommitAuthorDTO.fromJson(
-              json['commitAuthor'] as Map<String, dynamic>),
+          : CommitDTO.fromJson(json['commit'] as Map<String, dynamic>),
       author: AuthorDto.fromJson(json['author'] as Map<String, dynamic>),
-      message: json['message'] as String,
     );
 
 Map<String, dynamic> _$$CommitsDTOImplToJson(_$CommitsDTOImpl instance) =>
     <String, dynamic>{
-      'commitAuthor': instance.commitAuthor,
+      'commit': instance.commit,
       'author': instance.author,
-      'message': instance.message,
     };
