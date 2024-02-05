@@ -57,6 +57,18 @@ class _CommitScreenState extends ConsumerState<CommitScreen> {
               ],
             ),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                ref.read(commitProvider(
+                  widget.userName,
+                  widget.repo,
+                  widget.branch,
+                ));
+              },
+              icon: const Icon(Icons.refresh),
+            ),
+          ],
         ),
         body: commits.when(
           data: (commits) {
