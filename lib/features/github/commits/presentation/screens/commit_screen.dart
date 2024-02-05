@@ -70,73 +70,82 @@ class _CommitScreenState extends ConsumerState<CommitScreen> {
             ),
           ],
         ),
-        body: commits.when(
-          data: (commits) {
-            return Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: ListView.separated(
-                itemCount: commits.length,
-                itemBuilder: (context, index) {
-                  final commit = commits[index];
-                  return ListTile(
-                    visualDensity: VisualDensity.compact,
-                    title: Text(
-                      commit.commit.message,
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: ColorsFoundation.primary,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          commit.commit.commitAuthor.name,
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge!
-                              .copyWith(color: ColorsFoundation.quaternary),
-                        ),
-                        Text(
-                          commit.commit.commitAuthor.date,
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge!
-                              .copyWith(color: ColorsFoundation.secondary),
-                        ),
-                      ],
-                    ),
-                    leading: CircleAvatar(
-                      maxRadius: 30,
-                      backgroundImage: NetworkImage(
-                        commit.author.avatarUrl,
-                      ),
-                    ),
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const Divider(
-                    height: 1,
-                    color: ColorsFoundation.secondary,
-                  );
-                },
-              ),
-            );
-          },
-          loading: () => const Center(
-            child: CircularProgressIndicator(),
+        body: RefreshIndicator(
+          onRefresh: () => ref.refresh(
+            commitProvider(
+              widget.userName,
+              widget.repo,
+              widget.branch,
+            ).future,
           ),
-          error: (error, stackTrace) => const Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(Icons.error_outline_sharp,
-                    size: 80, color: ColorsFoundation.error),
-                Text(
-                  'Upss! Something went wrong!\nPlease try again!',
-                  textAlign: TextAlign.center,
+          child: commits.when(
+            data: (commits) {
+              return Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: ListView.separated(
+                  itemCount: commits.length,
+                  itemBuilder: (context, index) {
+                    final commit = commits[index];
+                    return ListTile(
+                      visualDensity: VisualDensity.compact,
+                      title: Text(
+                        commit.commit.message,
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: ColorsFoundation.primary,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            commit.commit.commitAuthor.name,
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge!
+                                .copyWith(color: ColorsFoundation.quaternary),
+                          ),
+                          Text(
+                            commit.commit.commitAuthor.date,
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge!
+                                .copyWith(color: ColorsFoundation.secondary),
+                          ),
+                        ],
+                      ),
+                      leading: CircleAvatar(
+                        maxRadius: 30,
+                        backgroundImage: NetworkImage(
+                          commit.author.avatarUrl,
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const Divider(
+                      height: 1,
+                      color: ColorsFoundation.secondary,
+                    );
+                  },
                 ),
-              ],
+              );
+            },
+            loading: () => const Center(
+              child: CircularProgressIndicator(),
+            ),
+            error: (error, stackTrace) => const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(Icons.error_outline_sharp,
+                      size: 80, color: ColorsFoundation.error),
+                  Text(
+                    'Upss! Something went wrong!\nPlease try again!',
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ),
           ),
         ));
