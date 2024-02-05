@@ -38,7 +38,10 @@ class GithubReactiveTextField extends StatelessWidget {
                   validationMessages!),
           keyboardType: keyboardType ??
               GithubForms.keyBoarTypeByFormControl(formControlName),
-          decoration: InputDecoration(hintText: hintText),
+          decoration: GithubForms.decorationSelect(
+            label: label,
+            hintText: hintText,
+          ),
         ),
       ],
     );

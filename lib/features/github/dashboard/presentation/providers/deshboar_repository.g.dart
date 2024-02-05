@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'deshboar_repository.dart';
+part of 'deshboar_repository_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator

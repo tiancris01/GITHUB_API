@@ -1,11 +1,9 @@
 import 'dart:io';
 
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:githun_api_commits/app/environments.dart';
 import 'package:githun_api_commits/shared/data/model/api_response.dart';
-import 'package:githun_api_commits/shared/data/model/exceptions/http_exception.dart';
 import 'package:githun_api_commits/shared/data/remote/networkService/network_service.dart';
 import 'package:githun_api_commits/shared/mixins/exception_handler_mixin.dart';
 
@@ -46,8 +44,7 @@ class DioNetworkService extends NetworkService with ExceptionHandlerMixin {
   }
 
   @override
-  Future<Either<AppException, ApiResponse>> post(String endpoint,
-      {Map<String, dynamic>? data}) {
+  Future<ApiResponse> post(String endpoint, {Map<String, dynamic>? data}) {
     final res = handleException(
       () => dio.post(
         endpoint,
@@ -59,7 +56,7 @@ class DioNetworkService extends NetworkService with ExceptionHandlerMixin {
   }
 
   @override
-  Future<Either<AppException, ApiResponse>> get(String endpoint,
+  Future<ApiResponse> get(String endpoint,
       {Map<String, dynamic>? queryParameters}) {
     final res = handleException(
       () => dio.get(

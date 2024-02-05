@@ -1,6 +1,4 @@
-import 'package:dartz/dartz.dart';
 import 'package:githun_api_commits/shared/data/model/api_response.dart';
-import 'package:githun_api_commits/shared/data/model/exceptions/http_exception.dart';
 
 abstract class NetworkService {
   String get baseUrl;
@@ -9,12 +7,12 @@ abstract class NetworkService {
 
   void updateHeader(Map<String, dynamic> data);
 
-  Future<Either<AppException, ApiResponse>> get(
+  Future<ApiResponse> get(
     String endpoint, {
     Map<String, dynamic>? queryParameters,
   });
 
-  Future<Either<AppException, ApiResponse>> post(
+  Future<ApiResponse> post(
     String endpoint, {
     Map<String, dynamic>? data,
   });

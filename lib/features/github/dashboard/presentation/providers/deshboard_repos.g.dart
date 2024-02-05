@@ -6,7 +6,7 @@ part of 'deshboard_repos.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$deshboardReposHash() => r'665c5dfa08a4d1f0a24132f500c1ae2e9613fe5f';
+String _$dashboardReposHash() => r'8437e2f29fc1af84283472b5e8b7a23a08c7d621';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,27 +29,27 @@ class _SystemHash {
   }
 }
 
-/// See also [deshboardRepos].
-@ProviderFor(deshboardRepos)
-const deshboardReposProvider = DeshboardReposFamily();
+/// See also [dashboardRepos].
+@ProviderFor(dashboardRepos)
+const dashboardReposProvider = DashboardReposFamily();
 
-/// See also [deshboardRepos].
-class DeshboardReposFamily extends Family<AsyncValue<List<ReposDTO>>> {
-  /// See also [deshboardRepos].
-  const DeshboardReposFamily();
+/// See also [dashboardRepos].
+class DashboardReposFamily extends Family<AsyncValue<List<GithubRepos>>> {
+  /// See also [dashboardRepos].
+  const DashboardReposFamily();
 
-  /// See also [deshboardRepos].
-  DeshboardReposProvider call(
+  /// See also [dashboardRepos].
+  DashboardReposProvider call(
     String username,
   ) {
-    return DeshboardReposProvider(
+    return DashboardReposProvider(
       username,
     );
   }
 
   @override
-  DeshboardReposProvider getProviderOverride(
-    covariant DeshboardReposProvider provider,
+  DashboardReposProvider getProviderOverride(
+    covariant DashboardReposProvider provider,
   ) {
     return call(
       provider.username,
@@ -68,32 +68,33 @@ class DeshboardReposFamily extends Family<AsyncValue<List<ReposDTO>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'deshboardReposProvider';
+  String? get name => r'dashboardReposProvider';
 }
 
-/// See also [deshboardRepos].
-class DeshboardReposProvider extends AutoDisposeFutureProvider<List<ReposDTO>> {
-  /// See also [deshboardRepos].
-  DeshboardReposProvider(
+/// See also [dashboardRepos].
+class DashboardReposProvider
+    extends AutoDisposeFutureProvider<List<GithubRepos>> {
+  /// See also [dashboardRepos].
+  DashboardReposProvider(
     String username,
   ) : this._internal(
-          (ref) => deshboardRepos(
-            ref as DeshboardReposRef,
+          (ref) => dashboardRepos(
+            ref as DashboardReposRef,
             username,
           ),
-          from: deshboardReposProvider,
-          name: r'deshboardReposProvider',
+          from: dashboardReposProvider,
+          name: r'dashboardReposProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$deshboardReposHash,
-          dependencies: DeshboardReposFamily._dependencies,
+                  : _$dashboardReposHash,
+          dependencies: DashboardReposFamily._dependencies,
           allTransitiveDependencies:
-              DeshboardReposFamily._allTransitiveDependencies,
+              DashboardReposFamily._allTransitiveDependencies,
           username: username,
         );
 
-  DeshboardReposProvider._internal(
+  DashboardReposProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -107,12 +108,12 @@ class DeshboardReposProvider extends AutoDisposeFutureProvider<List<ReposDTO>> {
 
   @override
   Override overrideWith(
-    FutureOr<List<ReposDTO>> Function(DeshboardReposRef provider) create,
+    FutureOr<List<GithubRepos>> Function(DashboardReposRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: DeshboardReposProvider._internal(
-        (ref) => create(ref as DeshboardReposRef),
+      override: DashboardReposProvider._internal(
+        (ref) => create(ref as DashboardReposRef),
         from: from,
         name: null,
         dependencies: null,
@@ -124,13 +125,13 @@ class DeshboardReposProvider extends AutoDisposeFutureProvider<List<ReposDTO>> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<ReposDTO>> createElement() {
-    return _DeshboardReposProviderElement(this);
+  AutoDisposeFutureProviderElement<List<GithubRepos>> createElement() {
+    return _DashboardReposProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is DeshboardReposProvider && other.username == username;
+    return other is DashboardReposProvider && other.username == username;
   }
 
   @override
@@ -142,18 +143,18 @@ class DeshboardReposProvider extends AutoDisposeFutureProvider<List<ReposDTO>> {
   }
 }
 
-mixin DeshboardReposRef on AutoDisposeFutureProviderRef<List<ReposDTO>> {
+mixin DashboardReposRef on AutoDisposeFutureProviderRef<List<GithubRepos>> {
   /// The parameter `username` of this provider.
   String get username;
 }
 
-class _DeshboardReposProviderElement
-    extends AutoDisposeFutureProviderElement<List<ReposDTO>>
-    with DeshboardReposRef {
-  _DeshboardReposProviderElement(super.provider);
+class _DashboardReposProviderElement
+    extends AutoDisposeFutureProviderElement<List<GithubRepos>>
+    with DashboardReposRef {
+  _DashboardReposProviderElement(super.provider);
 
   @override
-  String get username => (origin as DeshboardReposProvider).username;
+  String get username => (origin as DashboardReposProvider).username;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

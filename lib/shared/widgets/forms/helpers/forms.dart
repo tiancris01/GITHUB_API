@@ -92,16 +92,21 @@ class GithubForms {
   }
 
   static InputDecoration decorationSelect({
+    bool isSelecteble = false,
+    String? label,
     String? hintText,
   }) {
     return InputDecoration(
-      suffixIcon: const Padding(
-        padding: EdgeInsets.only(right: 10),
-        child: Icon(Icons.keyboard_arrow_down_rounded,
-            size: 40, color: ColorsFoundation.tertiary),
-      ),
+      labelText: label,
+      suffixIcon: isSelecteble
+          ? const Padding(
+              padding: EdgeInsets.only(right: 10),
+              child: Icon(Icons.keyboard_arrow_down_rounded,
+                  size: 40, color: ColorsFoundation.primary),
+            )
+          : null,
       hintText: hintText ?? 'Seleccionar',
-      hintStyle: FontsFoundation.lightTextTheme.bodyLarge!.copyWith(
+      hintStyle: FontsFoundation.lightTextTheme.displayLarge!.copyWith(
         color: ColorsFoundation.secondary,
       ),
     );
