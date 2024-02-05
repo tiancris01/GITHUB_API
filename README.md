@@ -25,15 +25,29 @@ Ensure you have the following prerequisites installed:
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/tiancris01/GITHUB_API.git
    cd GITHUB_API
 
+   ```
+
 2. Install dependencies:
+
    ```bash
    flutter pub get
 
+   ```
+
+3. Install dependencies:
+   ```bash
+   flutter pub run build_runner build --delete-conflicting-outputs
+   ```
+
 ## Usage
+
 Run the Flutter project:
+
 ```bash
    flutter run
+```
