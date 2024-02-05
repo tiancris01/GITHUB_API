@@ -17,7 +17,7 @@ https://github.com/tiancris01/GITHUB_API.git
 
 ### Prerequisites
 
-Ensure you have the following prerequisites installed:
+Ensure you have the following. prerequisites installed:
 
 - Flutter SDK: [Installation Guide](https://flutter.dev/docs/get-started/install)
 - Dart SDK: [Installation Guide](https://dart.dev/get-dart)
