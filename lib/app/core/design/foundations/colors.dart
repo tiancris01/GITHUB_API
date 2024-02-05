@@ -4,6 +4,11 @@ class ColorsFoundation {
   ColorsFoundation._internal();
 
   static const primary = ColorsToken.green;
+  static const secondary = ColorsToken.gray;
+  static const tertiary = ColorsToken.white;
+  static const quaternary = ColorsToken.black;
+  static const error = ColorsToken.red;
+  static const success = ColorsToken.green;
 
   static const background = _Background._();
   static const text = _Text._();

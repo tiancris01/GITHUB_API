@@ -1,13 +1,10 @@
-import 'package:dartz/dartz.dart';
-import 'package:githun_api_commits/features/github/core/data/dtos/branches/repo_branches_dto.dart';
-import 'package:githun_api_commits/features/github/core/data/dtos/repos/github_repos_dto.dart';
-import 'package:githun_api_commits/shared/data/model/exceptions/http_exception.dart';
+import 'package:githun_api_commits/features/github/core/domain/entities/branches/repo_branches.dart';
+import 'package:githun_api_commits/features/github/core/domain/entities/repos/github_repos.dart';
 
 abstract class DashboardRepository {
-  Future<Either<AppException, List<ReposDTO>>> getUserRepos(
-      {required String userName});
+  Future<List<GithubRepos>> getUserRepos({required String userName});
 
-  Future<Either<AppException, List<RepoBranchesDTO>>> getRepoBranches({
+  Future<List<RepoBranches>> getRepoBranches({
     required String userName,
     required String repoName,
   });

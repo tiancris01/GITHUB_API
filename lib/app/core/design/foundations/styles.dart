@@ -1,70 +1,43 @@
 part of '../design.dart';
 
 class StylesFoundation {
-  StylesFoundation._internal();
-
-  static final appBarStyle = _AppBarStyle._();
   static final inputBorderStyle = _InputBorderSyle._();
-  static final textButtonStyle = _TextButtonStyle._();
-  static final dialogStyle = _DialogStyle._();
   static final elevatedButtonStyle = _ElevatedButtonStyle._();
-  static final inputDecorationStyle = _InputDecorationStyle._();
+  static InputDecorationStyle get inputDecorationStyle =>
+      InputDecorationStyle();
 
-  static const contentPaddingInput =
-      EdgeInsets.symmetric(horizontal: 16, vertical: 12);
+  static EdgeInsets get contentPaddingInput =>
+      const EdgeInsets.symmetric(horizontal: 16, vertical: 12);
 
-  static final scrollBehavior =
+  static ScrollBehavior get scrollBehavior =>
       const ScrollBehavior().copyWith(physics: const BouncingScrollPhysics());
 }
 
-class _DialogStyle {
-  final dialogTheme = DialogTheme(
-    backgroundColor: ColorsFoundation.background.white,
-    surfaceTintColor: ColorsFoundation.background.white,
-  );
+class InputDecorationStyle {
+  InputDecorationTheme get inputDecorationLightTheme => InputDecorationTheme(
+        filled: true,
+        fillColor: ColorsToken.white,
+        border: StylesFoundation.inputBorderStyle.border,
+        contentPadding: StylesFoundation.contentPaddingInput,
+        errorBorder: StylesFoundation.inputBorderStyle.errorBorder,
+        focusedBorder: StylesFoundation.inputBorderStyle.focusedBorder,
+        enabledBorder: StylesFoundation.inputBorderStyle.enabledBorder,
+        focusedErrorBorder:
+            StylesFoundation.inputBorderStyle.focusedErrorBorder,
+      );
 
-  _DialogStyle._();
-}
-
-class _InputDecorationStyle {
-  final inputDecorationCodeValidation = InputDecoration(
-    counterText: '',
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(
-        color: ColorsFoundation.background.gray,
-      ),
-    ),
-    focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(
-        color: ColorsFoundation.action.error,
-      ),
-    ),
-  );
-
-  _InputDecorationStyle._();
-}
-
-class _AppBarStyle {
-  final appBar = AppBarTheme(
-    elevation: 5,
-    shadowColor: ColorsFoundation.background.gray,
-    backgroundColor: ColorsFoundation.background.white,
-    surfaceTintColor: ColorsFoundation.background.white,
-  );
-  _AppBarStyle._();
-}
-
-class _TextButtonStyle {
-  final textButtonModal = TextButton.styleFrom(
-    backgroundColor: Colors.transparent,
-    foregroundColor: ColorsFoundation.text.textButton,
-    textStyle: FontsFoundation.buttonTextStyle.buttonText,
-    disabledForegroundColor: ColorsFoundation.action.disabled,
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-  );
-  _TextButtonStyle._();
+  InputDecorationTheme get inputDecorationDarkTheme => InputDecorationTheme(
+        filled: true,
+        fillColor: ColorsFoundation.background.gray,
+        border: StylesFoundation.inputBorderStyle.border,
+        contentPadding: StylesFoundation.contentPaddingInput,
+        errorBorder: StylesFoundation.inputBorderStyle.errorBorder,
+        focusedBorder: StylesFoundation.inputBorderStyle.focusedBorder,
+        enabledBorder: StylesFoundation.inputBorderStyle.enabledBorder,
+        focusedErrorBorder:
+            StylesFoundation.inputBorderStyle.focusedErrorBorder,
+      );
+  InputDecorationStyle();
 }
 
 class _ElevatedButtonStyle {
@@ -73,7 +46,6 @@ class _ElevatedButtonStyle {
     foregroundColor: ColorsFoundation.text.whiteText,
     backgroundColor: ColorsFoundation.background.green,
     disabledBackgroundColor: ColorsFoundation.action.disabled,
-    textStyle: FontsFoundation.buttonTextStyle.elevatedButtonText,
     disabledForegroundColor: ColorsFoundation.action.disabledWhite,
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
     shape: RoundedRectangleBorder(
