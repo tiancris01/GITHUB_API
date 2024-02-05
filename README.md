@@ -1,16 +1,39 @@
-# githun_api_commits
+# Flutter Project Name
 
-A new Flutter project.
+This project is a technical test. the intention of this project is to be able get the commits for a particular branch hosted in github.
+
+https://github.com/tiancris01/GITHUB_API.git
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contact](#contact)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+Ensure you have the following prerequisites installed:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter SDK: [Installation Guide](https://flutter.dev/docs/get-started/install)
+- Dart SDK: [Installation Guide](https://dart.dev/get-dart)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/tiancris01/GITHUB_API.git
+   cd GITHUB_API
+
+2. Install dependencies:
+   ```bash
+   flutter pub get
+
+## Usage
+Run the Flutter project:
+```bash
+   flutter run
