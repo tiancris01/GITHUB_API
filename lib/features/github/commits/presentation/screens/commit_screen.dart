@@ -42,13 +42,14 @@ class _CommitScreenState extends ConsumerState<CommitScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.userName.toUpperCase(),
+                  overflow: TextOverflow.ellipsis,
+                  widget.repo.toUpperCase(),
                   style: Theme.of(context)
                       .textTheme
                       .headlineMedium!
                       .copyWith(color: ColorsFoundation.quaternary),
                 ),
-                Text(widget.repo.toUpperCase(),
+                Text(widget.userName.toUpperCase(),
                     style: Theme.of(context)
                         .textTheme
                         .labelMedium!
@@ -119,7 +120,10 @@ class _CommitScreenState extends ConsumerState<CommitScreen> {
               children: [
                 Icon(Icons.error_outline_sharp,
                     size: 80, color: ColorsFoundation.error),
-                Text('Upss! Something went wrong!'),
+                Text(
+                  'Upss! Something went wrong!\nPlease try again!',
+                  textAlign: TextAlign.center,
+                ),
               ],
             ),
           ),
