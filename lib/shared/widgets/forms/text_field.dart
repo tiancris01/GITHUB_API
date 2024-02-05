@@ -28,7 +28,7 @@ class GithubReactiveTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 8),
-        ReactiveTextField(
+        ReactiveTextField<String>(
           minLines: minLines ?? 1,
           maxLines: maxLines ?? 1,
           formControlName: formControlName,

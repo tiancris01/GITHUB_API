@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'commit_prov.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 Future<List<CommitEntitie>> commit(
     CommitRef ref, String userName, String repo, String branch) async {
   final repository = ref.watch(commitRepositoryProvider);

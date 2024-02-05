@@ -15,13 +15,16 @@ FormGroup dashboardFormController(DashboardFormControllerRef ref) {
 FormGroup dashboardFormGroup(DashboardFormGroupRef ref) {
   final form = FormGroup({
     'username': FormControl<String>(
+      value: 'tiancris01',
       validators: [Validators.required],
     ),
     'repos': FormControl<String>(
+      value: 'GITHUB_API',
       disabled: true,
       validators: [Validators.required],
     ),
     'branch': FormControl<String>(
+      value: 'develop',
       disabled: true,
       validators: [Validators.required],
     ),

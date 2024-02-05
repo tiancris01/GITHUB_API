@@ -20,6 +20,10 @@ class ThemeFoundation {
       primaryTextTheme: FontsFoundation.primateTextTheme,
       inputDecorationTheme:
           StylesFoundation.inputDecorationStyle.inputDecorationLightTheme,
+      appBarTheme: const AppBarTheme(
+          backgroundColor: ColorsFoundation.tertiary,
+          elevation: 5,
+          shadowColor: ColorsFoundation.secondary),
     );
   }
 

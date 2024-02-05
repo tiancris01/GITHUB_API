@@ -2,6 +2,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:githun_api_commits/app/core/design/design.dart';
 
 import 'package:githun_api_commits/features/github/commits/presentation/providers/commit_prov.dart';
 
@@ -35,7 +36,27 @@ class _CommitScreenState extends ConsumerState<CommitScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Commits'),
+          title: Padding(
+            padding: const EdgeInsets.only(bottom: 10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  overflow: TextOverflow.ellipsis,
+                  widget.repo.toUpperCase(),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium!
+                      .copyWith(color: ColorsFoundation.quaternary),
+                ),
+                Text(widget.userName.toUpperCase(),
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelMedium!
+                        .copyWith(color: ColorsFoundation.primary)),
+              ],
+            ),
+          ),
         ),
         body: commits.when(
           data: (commits) {
@@ -46,11 +67,34 @@ class _CommitScreenState extends ConsumerState<CommitScreen> {
                 itemBuilder: (context, index) {
                   final commit = commits[index];
                   return ListTile(
-                    title: Text(commit.commit.message),
-                    subtitle: Text(
-                      commit.commit.commitAuthor.name,
+                    visualDensity: VisualDensity.compact,
+                    title: Text(
+                      commit.commit.message,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: ColorsFoundation.primary,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          commit.commit.commitAuthor.name,
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge!
+                              .copyWith(color: ColorsFoundation.quaternary),
+                        ),
+                        Text(
+                          commit.commit.commitAuthor.date,
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge!
+                              .copyWith(color: ColorsFoundation.secondary),
+                        ),
+                      ],
                     ),
                     leading: CircleAvatar(
+                      maxRadius: 30,
                       backgroundImage: NetworkImage(
                         commit.author.avatarUrl,
                       ),
@@ -58,7 +102,10 @@ class _CommitScreenState extends ConsumerState<CommitScreen> {
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  return const Divider();
+                  return const Divider(
+                    height: 1,
+                    color: ColorsFoundation.secondary,
+                  );
                 },
               ),
             );
@@ -66,8 +113,19 @@ class _CommitScreenState extends ConsumerState<CommitScreen> {
           loading: () => const Center(
             child: CircularProgressIndicator(),
           ),
-          error: (error, stackTrace) => Center(
-            child: Text('Error: $error'),
+          error: (error, stackTrace) => const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(Icons.error_outline_sharp,
+                    size: 80, color: ColorsFoundation.error),
+                Text(
+                  'Upss! Something went wrong!\nPlease try again!',
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ));
   }
