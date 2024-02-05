@@ -60,11 +60,11 @@ class _CommitScreenState extends ConsumerState<CommitScreen> {
           actions: [
             IconButton(
               onPressed: () {
-                ref.read(commitProvider(
+                ref.refresh(commitProvider(
                   widget.userName,
                   widget.repo,
                   widget.branch,
-                ));
+                ).future);
               },
               icon: const Icon(Icons.refresh),
             ),
